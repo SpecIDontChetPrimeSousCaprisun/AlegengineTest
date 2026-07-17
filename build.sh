@@ -1,0 +1,11 @@
+g++ -Iinclude include/Alegengine/*.cpp include/Alegengine/glad.c -Iinclude/Alegengine/third-party main.cpp -o game \
+  -lglfw \
+  -lGL \
+  -ldl \
+  -lpthread \
+  -lX11 \
+  -lXrandr \
+  -lXi \
+  -lXxf86vm \
+  -lXcursor \
+  -lm
