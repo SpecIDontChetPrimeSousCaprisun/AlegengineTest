@@ -1,0 +1,47 @@
+CXX = g++
+CXXFLAGS = -Wall -Wextra \
+					 -std=c++17 \
+					 -Iinclude \
+					 -Iinclude/Alegengine/third-party
+
+TARGET = game
+
+LIBS = -lglfw \
+  -lGL \
+  -ldl \
+  -lpthread \
+  -lX11 \
+  -lXrandr \
+  -lXi \
+  -lXxf86vm \
+  -lXcursor \
+  -lm
+
+SRC = main.cpp \
+			include/Alegengine/src/*
+
+OBJDIR = build
+
+OBJ = $(SRC:src/%.cpp=$(OBJDIR)/src/%.o)
+OBJ := $(OBJ:src/glad.c=$(OBJDIR)/src/glad.o)
+OBJ := $(OBJ:include/Alegengine/src/%.cpp=$(OBJDIR)/AlegengineSrc/%.o)
+
+all: $(TARGET)
+
+$(TARGET): $(OBJ)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(TARGET) $(LIBS)
+
+$(OBJDIR)/src/%.o: src/%.cpp
+	mkdir -p $(dir $@)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(OBJDIR)/src/glad.o: src/glad.c
+	mkdir -p $(dir $@)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(OBJDIR)/AlegengineSrc/%.o: include/Alegengine/src/%.cpp
+	mkdir -p $(dir $@)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+test: all
+	./$(TARGET)
