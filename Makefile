@@ -17,13 +17,13 @@ LIBS = -lglfw \
   -lXcursor \
   -lm
 
-SRC = main.cpp \
+SRC = src/main.cpp \
 			include/Alegengine/src/*
 
 OBJDIR = build
 
 OBJ = $(SRC:src/%.cpp=$(OBJDIR)/src/%.o)
-OBJ := $(OBJ:src/glad.c=$(OBJDIR)/src/glad.o)
+OBJ := $(OBJ:include/Alegengine/src/glad.c=$(OBJDIR)/AlegengineSrc/glad.o)
 OBJ := $(OBJ:include/Alegengine/src/%.cpp=$(OBJDIR)/AlegengineSrc/%.o)
 
 all: $(TARGET)
@@ -35,7 +35,7 @@ $(OBJDIR)/src/%.o: src/%.cpp
 	mkdir -p $(dir $@)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-$(OBJDIR)/src/glad.o: src/glad.c
+$(OBJDIR)/AlegengineSrc/glad.o: include/Alegengine/src/glad.c
 	mkdir -p $(dir $@)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
@@ -45,3 +45,9 @@ $(OBJDIR)/AlegengineSrc/%.o: include/Alegengine/src/%.cpp
 
 test: all
 	./$(TARGET)
+
+clean:
+	rm -rf build
+	rm $(TARGET)
+
+.PHONY: all test clean
