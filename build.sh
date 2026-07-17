@@ -1,4 +1,7 @@
-g++ -Iinclude include/Alegengine/src/* -Iinclude/Alegengine/third-party main.cpp -o game \
+g++ -Wall -Wextra \
+  -Iinclude include/Alegengine/src/* \
+  -Iinclude/Alegengine/third-party main.cpp \
+  -o game \
   -lglfw \
   -lGL \
   -ldl \
