@@ -9,10 +9,13 @@ uniform vec3 color;
 uniform bool useColor;
 
 void main() {
+  vec4 finalColor;
+
   if (useColor) {
-    gl_FragColor = vec4(
-      color.rgb,
-      alpha
-    );
+    finalColor = vec4(color, alpha);
+  } else {
+    finalColor = texture2D(tex, TexCoord);
   }
+
+  gl_FragColor = finalColor;
 }
