@@ -43,6 +43,7 @@ $(OBJDIR)/AlegengineSrc/%.o: include/Alegengine/src/%.cpp
 	mkdir -p $(dir $@)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
+test: CXXFLAGS += -DALEG_DEBUG
 test: all
 	./$(TARGET)
 
