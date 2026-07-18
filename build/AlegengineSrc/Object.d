@@ -1,10 +1,12 @@
 build/AlegengineSrc/Object.o: include/Alegengine/src/Object.cpp \
- include/Alegengine/src/../objects/Object.hpp \
- include/Alegengine/src/../objects/../rendering/Shader.hpp \
- include/Alegengine/src/../objects/../rendering/../helpers/Logger.hpp \
+ include/Alegengine/src/../alegengine.hpp \
+ include/Alegengine/src/../rendering/Window.hpp \
  include/Alegengine/third-party/glad/glad.h \
  include/Alegengine/third-party/glad/gladHeader.h \
  include/Alegengine/third-party/KHR/khrplatform.h \
+ include/Alegengine/src/../rendering/Shader.hpp \
+ include/Alegengine/src/../rendering/../helpers/Logger.hpp \
+ include/Alegengine/src/../objects/Object.hpp \
  include/Alegengine/src/../objects/DrawInfo.hpp \
  include/Alegengine/third-party/glm/glm.hpp \
  include/Alegengine/third-party/glm/detail/_fixes.hpp \
@@ -201,14 +203,15 @@ build/AlegengineSrc/Object.o: include/Alegengine/src/Object.cpp \
  include/Alegengine/third-party/glm/gtc/type_ptr.inl \
  include/Alegengine/src/../objects/CollisionResult.hpp \
  include/Alegengine/src/../objects/CollisionGroup.hpp \
- include/Alegengine/src/../rendering/Window.hpp \
  include/Alegengine/src/../helpers/FileLoader.hpp
-include/Alegengine/src/../objects/Object.hpp:
-include/Alegengine/src/../objects/../rendering/Shader.hpp:
-include/Alegengine/src/../objects/../rendering/../helpers/Logger.hpp:
+include/Alegengine/src/../alegengine.hpp:
+include/Alegengine/src/../rendering/Window.hpp:
 include/Alegengine/third-party/glad/glad.h:
 include/Alegengine/third-party/glad/gladHeader.h:
 include/Alegengine/third-party/KHR/khrplatform.h:
+include/Alegengine/src/../rendering/Shader.hpp:
+include/Alegengine/src/../rendering/../helpers/Logger.hpp:
+include/Alegengine/src/../objects/Object.hpp:
 include/Alegengine/src/../objects/DrawInfo.hpp:
 include/Alegengine/third-party/glm/glm.hpp:
 include/Alegengine/third-party/glm/detail/_fixes.hpp:
@@ -405,5 +408,4 @@ include/Alegengine/third-party/glm/gtc/../gtc/../ext/vector_uint1_sized.hpp:
 include/Alegengine/third-party/glm/gtc/type_ptr.inl:
 include/Alegengine/src/../objects/CollisionResult.hpp:
 include/Alegengine/src/../objects/CollisionGroup.hpp:
-include/Alegengine/src/../rendering/Window.hpp:
 include/Alegengine/src/../helpers/FileLoader.hpp:
