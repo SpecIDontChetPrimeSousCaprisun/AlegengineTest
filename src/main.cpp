@@ -16,8 +16,17 @@ int main() {
                                         "textures/box.png",
                                         0.0f);
 
+  Aleg::Object* obj3 = new Aleg::Object(glm::vec2(150.0f, 50.0f), 
+                                        glm::vec2(100.0f, 100.0f),
+                                        0.0f,
+                                        "textures/box.png",
+                                        0.1f);
+
   obj1->collisionGroup = CustomCollisionGroups::test1;
   obj2->collisionGroup = CustomCollisionGroups::test2;
+  obj3->collisionGroup = CustomCollisionGroups::test1;
+
+  obj3->parent = obj1;
 
   Aleg::Object* testDelete = new Aleg::Object(glm::vec2(110.0f, 0.0f), 
                              glm::vec2(100.0f, 100.0f),
