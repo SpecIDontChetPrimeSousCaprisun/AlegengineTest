@@ -202,6 +202,7 @@ build/src/main.o: src/main.cpp include/Alegengine/alegengine.hpp \
  include/Alegengine/third-party/glm/gtc/type_ptr.inl \
  include/Alegengine/objects/CollisionResult.hpp \
  include/Alegengine/objects/CollisionGroup.hpp \
+ include/Alegengine/objects/Player.hpp \
  include/Alegengine/helpers/FileLoader.hpp src/CollisionGroup.hpp
 include/Alegengine/alegengine.hpp:
 include/Alegengine/rendering/Window.hpp:
@@ -407,5 +408,6 @@ include/Alegengine/third-party/glm/gtc/../gtc/../ext/vector_uint1_sized.hpp:
 include/Alegengine/third-party/glm/gtc/type_ptr.inl:
 include/Alegengine/objects/CollisionResult.hpp:
 include/Alegengine/objects/CollisionGroup.hpp:
+include/Alegengine/objects/Player.hpp:
 include/Alegengine/helpers/FileLoader.hpp:
 src/CollisionGroup.hpp:

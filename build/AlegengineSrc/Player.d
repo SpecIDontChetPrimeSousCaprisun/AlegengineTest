@@ -1,4 +1,4 @@
-build/AlegengineSrc/Object.o: include/Alegengine/src/Object.cpp \
+build/AlegengineSrc/Player.o: include/Alegengine/src/Player.cpp \
  include/Alegengine/alegengine.hpp \
  include/Alegengine/rendering/Window.hpp \
  include/Alegengine/third-party/glad/glad.h \
