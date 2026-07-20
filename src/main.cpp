@@ -28,6 +28,8 @@ int main() {
 
   obj3->parent = obj1;
 
+  Aleg::Camera::currentCamera->parent = obj1;
+
   Aleg::Object* testDelete = new Aleg::Object(glm::vec2(110.0f, 0.0f), 
                              glm::vec2(100.0f, 100.0f),
                              0.0f,
