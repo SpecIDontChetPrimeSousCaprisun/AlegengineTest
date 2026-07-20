@@ -5,8 +5,7 @@ build/src/main.o: src/main.cpp include/Alegengine/alegengine.hpp \
  include/Alegengine/third-party/KHR/khrplatform.h \
  include/Alegengine/rendering/Shader.hpp \
  include/Alegengine/rendering/../helpers/Logger.hpp \
- include/Alegengine/objects/Object.hpp \
- include/Alegengine/objects/DrawInfo.hpp \
+ include/Alegengine/rendering/Camera.hpp \
  include/Alegengine/third-party/glm/glm.hpp \
  include/Alegengine/third-party/glm/detail/_fixes.hpp \
  include/Alegengine/third-party/glm/detail/setup.hpp \
@@ -200,6 +199,8 @@ build/src/main.o: src/main.cpp include/Alegengine/alegengine.hpp \
  include/Alegengine/third-party/glm/gtc/../gtc/../ext/vector_uint1.hpp \
  include/Alegengine/third-party/glm/gtc/../gtc/../ext/vector_uint1_sized.hpp \
  include/Alegengine/third-party/glm/gtc/type_ptr.inl \
+ include/Alegengine/objects/Object.hpp \
+ include/Alegengine/objects/DrawInfo.hpp \
  include/Alegengine/objects/CollisionResult.hpp \
  include/Alegengine/objects/CollisionGroup.hpp \
  include/Alegengine/objects/Player.hpp \
@@ -211,8 +212,7 @@ include/Alegengine/third-party/glad/gladHeader.h:
 include/Alegengine/third-party/KHR/khrplatform.h:
 include/Alegengine/rendering/Shader.hpp:
 include/Alegengine/rendering/../helpers/Logger.hpp:
-include/Alegengine/objects/Object.hpp:
-include/Alegengine/objects/DrawInfo.hpp:
+include/Alegengine/rendering/Camera.hpp:
 include/Alegengine/third-party/glm/glm.hpp:
 include/Alegengine/third-party/glm/detail/_fixes.hpp:
 include/Alegengine/third-party/glm/detail/setup.hpp:
@@ -406,6 +406,8 @@ include/Alegengine/third-party/glm/gtc/../gtc/../ext/vector_int1_sized.hpp:
 include/Alegengine/third-party/glm/gtc/../gtc/../ext/vector_uint1.hpp:
 include/Alegengine/third-party/glm/gtc/../gtc/../ext/vector_uint1_sized.hpp:
 include/Alegengine/third-party/glm/gtc/type_ptr.inl:
+include/Alegengine/objects/Object.hpp:
+include/Alegengine/objects/DrawInfo.hpp:
 include/Alegengine/objects/CollisionResult.hpp:
 include/Alegengine/objects/CollisionGroup.hpp:
 include/Alegengine/objects/Player.hpp:
