@@ -20,7 +20,7 @@ int main() {
                                         glm::vec2(100.0f, 100.0f),
                                         0.0f,
                                         "textures/box.png",
-                                        0.1f);
+                                        0.1f); 
 
   obj1->collisionGroup = CustomCollisionGroups::test1;
   obj2->collisionGroup = CustomCollisionGroups::test2;
@@ -54,6 +54,14 @@ int main() {
   platform->rotation = 30.0f;
 
   testDelete->pendDelete();
+
+  Aleg::TextElement* text = new Aleg::TextElement(glm::vec2(0.25f, 0.25f),
+                                                  glm::vec2(0.25f, 0.25f),
+                                                  0.0f,
+                                                  "textures/box.png",
+                                                  0.1f,
+                                                  "fonts/Kenney Future Narrow.ttf",
+                                                  "Hello, alegations !");
 
   Aleg::mainLoop();
   return 0;
