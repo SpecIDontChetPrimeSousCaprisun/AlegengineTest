@@ -55,13 +55,13 @@ int main() {
 
   testDelete->pendDelete();
 
-  Aleg::TextElement* text = new Aleg::TextElement(glm::vec2(0.25f, 0.25f),
-                                                  glm::vec2(0.25f, 0.25f),
-                                                  0.0f,
-                                                  "textures/box.png",
-                                                  0.1f,
-                                                  "fonts/Kenney Future Narrow.ttf",
-                                                  "Hello, alegations !");
+  new Aleg::Button(glm::vec2(0.25f, 0.25f),
+                   glm::vec2(0.25f, 0.25f),
+                   0.0f,
+                   "textures/box.png",
+                   0.1f,
+                   "fonts/Kenney Future Narrow.ttf",
+                   "Hello, alegations !");
 
   Aleg::mainLoop();
   return 0;
