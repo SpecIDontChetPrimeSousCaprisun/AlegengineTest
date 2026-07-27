@@ -26,9 +26,9 @@ int main() {
   obj2->collisionGroup = CustomCollisionGroups::test2;
   obj3->collisionGroup = CustomCollisionGroups::test1;
 
-  obj3->parent = obj1;
+  obj3->setParent(obj1);
 
-  Aleg::Camera::currentCamera->parent = obj1;
+  Aleg::Camera::currentCamera->setParent(obj1);
 
   Aleg::Object* testDelete = new Aleg::Object(glm::vec2(110.0f, 0.0f), 
                              glm::vec2(100.0f, 100.0f),
@@ -55,13 +55,21 @@ int main() {
 
   testDelete->pendDelete();
 
-  new Aleg::Button(glm::vec2(0.25f, 0.25f),
-                   glm::vec2(0.25f, 0.25f),
-                   0.0f,
-                   "textures/box.png",
-                   0.1f,
-                   "fonts/Kenney Future Narrow.ttf",
-                   "Hello, alegations !");
+  Aleg::ScrollingElement* scroll = new Aleg::ScrollingElement(glm::vec2(0.25f, 0.25f),
+                                                             glm::vec2(0.25f, 0.25f),
+                                                             0.0f,
+                                                             glm::vec3(0.1f, 0.1f, 0.1f),
+                                                             0.0f);
+
+  Aleg::Button* button = new Aleg::Button(glm::vec2(0.25f, 0.25f),
+                                          glm::vec2(0.25f, 0.25f),
+                                          0.0f,
+                                          "textures/box.png",
+                                          0.1f,
+                                          "fonts/Kenney Future Narrow.ttf",
+                                          "Hello, alegations !");
+
+  button->setParent(scroll);
 
   Aleg::mainLoop();
   return 0;
