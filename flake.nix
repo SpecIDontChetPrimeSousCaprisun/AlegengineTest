@@ -12,6 +12,7 @@
         buildInputs = with pkgs; [
           gcc
           glfw
+          gdb
           xorg.libX11
           xorg.libXrandr
           xorg.libXi

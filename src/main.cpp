@@ -4,7 +4,7 @@
 int main() {
   Aleg::init("side");
 
-  Aleg::Player* obj1 = new Aleg::Player(glm::vec2(100.0f, 0.0f), 
+  Aleg::Player* obj1 = new Aleg::Player(glm::vec2(200.0f, 0.0f), 
                                         glm::vec2(100.0f, 100.0f),
                                         0.0f,
                                         glm::vec3(1.0f, 0.0f, 0.0f),
@@ -28,7 +28,7 @@ int main() {
 
   obj3->setParent(obj1);
 
-  Aleg::Camera::currentCamera->setParent(obj1);
+  Aleg::Window::windows["main"]->cam->setParent(obj1);
 
   Aleg::Object* testDelete = new Aleg::Object(glm::vec2(110.0f, 0.0f), 
                              glm::vec2(100.0f, 100.0f),
@@ -70,6 +70,15 @@ int main() {
                                           "Hello, alegations !");
 
   button->setParent(scroll);
+
+  Aleg::Window* testWindow = new Aleg::Window(25.0f, 25.0f, "Test", "test");
+  Aleg::Object* testObj = new Aleg::Object(glm::vec2(0.25f, 0.25f),
+                   glm::vec2(25.0f, 25.0f),
+                   0.0f,
+                   "textures/box.png",
+                   0.1f,
+                   testWindow);
+  testObj->anchored = true;
 
   Aleg::mainLoop();
   return 0;

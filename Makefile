@@ -50,9 +50,9 @@ $(OBJDIR)/AlegengineSrc/%.o: include/Alegengine/src/%.c
 # Pull in auto-generated header dependencies, if they exist
 -include $(DEPS)
 
-test: CXXFLAGS += -DALEG_DEBUG
+test: CXXFLAGS += -DALEG_DEBUG -g
 test: all
-	./$(TARGET)
+	gdb -q -batch -x debug.gdb --args ./$(TARGET)
 
 clean:
 	rm -rf build
