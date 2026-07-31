@@ -72,14 +72,21 @@ int main() {
   button->setParent(scroll);
 
   Aleg::Window* testWindow = new Aleg::Window(25.0f, 25.0f, "Test", "test");
-  Aleg::Object* testObj = new Aleg::Object(glm::vec2(0.25f, 0.25f),
-                   glm::vec2(25.0f, 25.0f),
-                   0.0f,
-                   "textures/box.png",
-                   0.1f,
-                   testWindow);
+  Aleg::Object* testObj = new Aleg::Object(glm::vec2(0.0f, 0.0f),
+                                           glm::vec2(300.0f, 100.0f),
+                                           0.0f,
+                                           "textures/box.png",
+                                           0.1f,
+                                           testWindow);
   testObj->anchored = true;
 
+  Aleg::Player* p2 = new Aleg::Player(glm::vec2(0.0f, -100.0f), 
+                                      glm::vec2(100.0f, 100.0f),
+                                      0.0f,
+                                      glm::vec3(1.0f, 0.0f, 0.0f),
+                                      0.0f);
+
+  testWindow->cam->setParent(p2);
   Aleg::mainLoop();
   return 0;
 }
