@@ -22,9 +22,9 @@ int main() {
                                         "textures/box.png",
                                         0.1f); 
 
-  obj1->collisionGroup = CustomCollisionGroups::test1;
+  /*obj1->collisionGroup = CustomCollisionGroups::test1;
   obj2->collisionGroup = CustomCollisionGroups::test2;
-  obj3->collisionGroup = CustomCollisionGroups::test1;
+  obj3->collisionGroup = CustomCollisionGroups::test1;*/
 
   obj3->setParent(obj1);
 
