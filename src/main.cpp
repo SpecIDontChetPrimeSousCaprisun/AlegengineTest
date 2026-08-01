@@ -90,6 +90,8 @@ int main() {
 
   Aleg::ScreenEffect* effect = new Aleg::ScreenEffect("shaders/AustraliaVert.glsl", "shaders/AustraliaFrag.glsl", "Australia");
   testWindow->screenEffects.push_back(effect);
+  effect = new Aleg::ScreenEffect("shaders/AustraliaVert.glsl", "shaders/AustraliaFragH.glsl", "Australia");
+  testWindow->screenEffects.push_back(effect);
 
   Aleg::mainLoop();
   return 0;
