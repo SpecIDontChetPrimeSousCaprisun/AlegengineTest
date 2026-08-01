@@ -87,6 +87,10 @@ int main() {
                                       0.0f);
 
   testWindow->cam->setParent(p2);
+
+  Aleg::ScreenEffect* effect = new Aleg::ScreenEffect("shaders/AustraliaVert.glsl", "shaders/AustraliaFrag.glsl", "Australia");
+  testWindow->screenEffects.push_back(effect);
+
   Aleg::mainLoop();
   return 0;
 }
