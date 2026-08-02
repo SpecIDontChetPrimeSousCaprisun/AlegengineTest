@@ -19,7 +19,7 @@ LIBS = -lglfw \
 OBJDIR = build
 
 # Gather sources properly (see note below on wildcard)
-MAIN_SRC = src/main.cpp
+MAIN_SRC = src/main.cpp src/WindowOpener.cpp
 ENGINE_CPP_SRC = $(wildcard include/Alegengine/src/*.cpp)
 ENGINE_C_SRC = $(wildcard include/Alegengine/src/*.c)
 

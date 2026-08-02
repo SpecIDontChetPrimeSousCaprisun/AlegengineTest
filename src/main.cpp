@@ -1,5 +1,9 @@
 #include <Alegengine/alegengine.hpp>
 #include "CollisionGroup.hpp"
+#include "WindowOpener.hpp"
+#include <sstream>
+#include <thread>
+#include <chrono>
 
 int main() {
   Aleg::init("side");
@@ -84,7 +88,8 @@ int main() {
                                       glm::vec2(100.0f, 100.0f),
                                       0.0f,
                                       glm::vec3(1.0f, 0.0f, 0.0f),
-                                      0.0f);
+                                      0.0f,
+                                      testWindow);
 
   testWindow->cam->setParent(p2);
 
@@ -92,6 +97,25 @@ int main() {
   testWindow->screenEffects.push_back(effect);
   effect = new Aleg::ScreenEffect("shaders/AustraliaVert.glsl", "shaders/AustraliaFragH.glsl", "Australia");
   testWindow->screenEffects.push_back(effect);
+
+  //new WindowOpener();
+
+  /*int windowCount = 100;
+
+  for (int i = 1; i < 200; i++) {
+    windowCount += 1;
+    std::cout << windowCount << "\n";
+
+    std::ostringstream ss;
+    ss << "Woondo " << windowCount;
+
+    new Aleg::Window(25.0f, 25.0f, ss.str(), ss.str());
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(16));
+  }*/
+
+  /*Aleg::Window* testWindow2 = new Aleg::Window(25.0f, 25.0f, "Test", "test2");
+  Aleg::Window* testWindow3 = new Aleg::Window(25.0f, 25.0f, "Test", "test3");*/
 
   Aleg::mainLoop();
   return 0;
