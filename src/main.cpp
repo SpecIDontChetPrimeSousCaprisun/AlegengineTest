@@ -1,9 +1,15 @@
 #include <Alegengine/alegengine.hpp>
-#include "CollisionGroup.hpp"
-#include "WindowOpener.hpp"
+#include <shaders/AustraliaVert.h>
+#include <shaders/AustraliaFrag.h>
+#include <shaders/AustraliaFragH.h>
+#include <textures/box.h>
+#include <fonts/KenneyFutureNarrow.h>
 #include <sstream>
 #include <thread>
 #include <chrono>
+
+#include "CollisionGroup.hpp"
+#include "WindowOpener.hpp"
 
 int main() {
   Aleg::init("side");
@@ -17,18 +23,20 @@ int main() {
   Aleg::Object* obj2 = new Aleg::Object(glm::vec2(700.0f, 500.0f), 
                                         glm::vec2(100.0f, 100.0f),
                                         0.0f,
-                                        "textures/box.png",
+                                        box_png,
+                                        box_png_len,
                                         0.0f);
 
   Aleg::Object* obj3 = new Aleg::Object(glm::vec2(150.0f, 50.0f), 
                                         glm::vec2(100.0f, 100.0f),
                                         0.0f,
-                                        "textures/box.png",
+                                        box_png,
+                                        box_png_len,
                                         0.1f); 
 
-  /*obj1->collisionGroup = CustomCollisionGroups::test1;
+  obj1->collisionGroup = CustomCollisionGroups::test1;
   obj2->collisionGroup = CustomCollisionGroups::test2;
-  obj3->collisionGroup = CustomCollisionGroups::test1;*/
+  obj3->collisionGroup = CustomCollisionGroups::test1;
 
   obj3->setParent(obj1);
 
@@ -66,11 +74,13 @@ int main() {
                                                              0.0f);
 
   Aleg::Button* button = new Aleg::Button(glm::vec2(0.25f, 0.25f),
-                                          glm::vec2(0.25f, 0.25f),
+                                          glm::vec2(0.25f, 2.5f),
                                           0.0f,
-                                          "textures/box.png",
+                                          box_png,
+                                          box_png_len,
                                           0.1f,
-                                          "fonts/Kenney Future Narrow.ttf",
+                                          KenneyFutureNarrow_ttf,
+                                          KenneyFutureNarrow_ttf_len,
                                           "Hello, alegations !");
 
   button->setParent(scroll);
@@ -79,7 +89,8 @@ int main() {
   Aleg::Object* testObj = new Aleg::Object(glm::vec2(0.0f, 0.0f),
                                            glm::vec2(300.0f, 100.0f),
                                            0.0f,
-                                           "textures/box.png",
+                                           box_png,
+                                           box_png_len,
                                            0.1f,
                                            testWindow);
   testObj->anchored = true;
@@ -93,30 +104,21 @@ int main() {
 
   testWindow->cam->setParent(p2);
 
-  Aleg::ScreenEffect* effect = new Aleg::ScreenEffect("shaders/AustraliaVert.glsl", "shaders/AustraliaFrag.glsl", "Australia");
+  Aleg::UIElement* testButton = new Aleg::UIElement(glm::vec2(0.0f, 0.0f),
+                   glm::vec2(0.25f, 0.25f),
+                   0.0f,
+                   box_png,
+                   box_png_len,
+                   0.5f,
+                   testWindow);
+
+  testButton->setParent(testWindow->parent);
+
+  Aleg::ScreenEffect* effect = new Aleg::ScreenEffect((const char*)AustraliaVert_glsl, (const char*)AustraliaFrag_glsl, "Australia");
   testWindow->screenEffects.push_back(effect);
-  effect = new Aleg::ScreenEffect("shaders/AustraliaVert.glsl", "shaders/AustraliaFragH.glsl", "Australia");
+  effect = new Aleg::ScreenEffect((const char*)AustraliaVert_glsl, (const char*)AustraliaFragH_glsl, "AustraliaH");
   testWindow->screenEffects.push_back(effect);
-
-  //new WindowOpener();
-
-  /*int windowCount = 100;
-
-  for (int i = 1; i < 200; i++) {
-    windowCount += 1;
-    std::cout << windowCount << "\n";
-
-    std::ostringstream ss;
-    ss << "Woondo " << windowCount;
-
-    new Aleg::Window(25.0f, 25.0f, ss.str(), ss.str());
-
-    std::this_thread::sleep_for(std::chrono::milliseconds(16));
-  }*/
-
-  /*Aleg::Window* testWindow2 = new Aleg::Window(25.0f, 25.0f, "Test", "test2");
-  Aleg::Window* testWindow3 = new Aleg::Window(25.0f, 25.0f, "Test", "test3");*/
-
+ 
   Aleg::mainLoop();
   return 0;
 }
