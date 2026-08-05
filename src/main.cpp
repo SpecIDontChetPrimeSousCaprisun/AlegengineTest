@@ -50,7 +50,7 @@ int main() {
 
   Aleg::Object* platform = new Aleg::Object(glm::vec2(-50.0f, 500.0f), 
                                             glm::vec2(750.0f, 50.0f),
-                                            0.0f,
+0.0f,
                                             glm::vec3(0.0f, 0.5f, 1.0f),
                                             0.0f);
 
@@ -111,6 +111,16 @@ int main() {
                    box_png_len,
                    0.5f,
                    testWindow);
+
+  Aleg::Tween<glm::vec2>* testTween = new Aleg::Tween<glm::vec2>(&testButton->position,
+                                                                 testButton->position,
+                                                                 glm::vec2(0.9f, 0.0f),
+                                                                 5.0f,
+                                                                 testWindow,
+                                                                 Aleg::Ease::back,
+                                                                 Aleg::EaseDirection::InOut);
+
+  testTween->play();
 
   testButton->setParent(testWindow->parent);
 
