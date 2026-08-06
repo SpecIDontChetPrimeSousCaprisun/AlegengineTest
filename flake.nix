@@ -1,5 +1,5 @@
 {
-  description = "myengine dev environment";
+  description = "alegengine dev environment";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
@@ -7,18 +7,25 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      mingw = pkgs.pkgsCross.mingwW64;
     in {
       devShells.${system}.default = pkgs.mkShell {
         buildInputs = with pkgs; [
           gcc
           glfw
           gdb
-          xorg.libX11
-          xorg.libXrandr
-          xorg.libXi
-          xorg.libXxf86vm
-          xorg.libXcursor
+          libX11
+          libXrandr
+          libXi
+          libXxf86vm
+          libXcursor
+          mingw.buildPackages.gcc
+          mingw.glfw
         ];
+
+        shellHook = ''
+          export MINGW_GLFW=${mingw.glfw}
+        '';
       };
     };
 }

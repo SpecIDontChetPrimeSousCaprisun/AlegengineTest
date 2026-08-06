@@ -1,4 +1,5 @@
 CXX = g++
+WIN_CXX = x86_64-w64-mingw32-g++
 CXXFLAGS = -Wall -Wextra \
 					 -std=c++17 \
 					 -Iinclude \
@@ -6,7 +7,16 @@ CXXFLAGS = -Wall -Wextra \
 					 -MMD -MP \
 					 -I$(EMBED_DIR) \
 					 -O2
+WINDOWS_CXXFLAGS = -std=c++17 \
+									 -Iinclude \
+									 -Iinclude/Alegengine/third-party \
+									 -I$(EMBED_DIR) \
+					 				 -O2 \
+									 -static \
+									 -static-libgcc \
+									 -static-libstdc++
 TARGET = game
+WIN_TARGET = publish/windows/game.exe
 LIBS = -lglfw \
   -lGL \
   -ldl \
@@ -17,6 +27,12 @@ LIBS = -lglfw \
   -lXxf86vm \
   -lXcursor \
   -lm
+LIBS_WINDOWS = \
+	-L$(MINGW_GLFW)/lib \
+	-lglfw3dll \
+	-lopengl32 \
+	-lgdi32 \
+	-lwinmm
 
 OBJDIR = build
 
@@ -89,8 +105,21 @@ test: CXXFLAGS += -DALEG_DEBUG -g
 test: all
 	gdb -q -batch -x debug.gdb --args ./$(TARGET)
 
+windows:
+	mkdir -p build
+	mkdir -p publish/windows
+
+	$(WIN_CXX) \
+	$(WINDOWS_CXXFLAGS) \
+	$(MAIN_SRC) $(ENGINE_C_SRC) $(ENGINE_CPP_SRC) \
+	-o $(WIN_TARGET) \
+	$(LIBS_WINDOWS) \
+	-mwindows
+
+	cp $(MINGW_GLFW)/bin/glfw3.dll publish/windows/
+
 clean:
 	rm -rf build
 	rm -f $(TARGET)
 
-.PHONY: all test clean
+.PHONY: all test clean windows

@@ -50,7 +50,7 @@ int main() {
 
   Aleg::Object* platform = new Aleg::Object(glm::vec2(-50.0f, 500.0f), 
                                             glm::vec2(750.0f, 50.0f),
-0.0f,
+                                            0.0f,
                                             glm::vec3(0.0f, 0.5f, 1.0f),
                                             0.0f);
 
@@ -73,17 +73,21 @@ int main() {
                                                              glm::vec3(0.1f, 0.1f, 0.1f),
                                                              0.0f);
 
-  Aleg::Button* button = new Aleg::Button(glm::vec2(0.25f, 0.25f),
-                                          glm::vec2(0.25f, 2.5f),
-                                          0.0f,
-                                          box_png,
-                                          box_png_len,
-                                          0.1f,
-                                          KenneyFutureNarrow_ttf,
-                                          KenneyFutureNarrow_ttf_len,
-                                          "Hello, alegations !");
+  for (int i = 0; i < 30; i++) {
+    Aleg::Button* button = new Aleg::Button(glm::vec2(0.25f, 0.25f),
+                                            glm::vec2(0.25f, 2.5f),
+                                            0.0f,
+                                            box_png,
+                                            box_png_len,
+                                            0.1f,
+                                            KenneyFutureNarrow_ttf,
+                                            KenneyFutureNarrow_ttf_len,
+                                            "Hello, alegations !");
 
-  button->setParent(scroll);
+    button->setParent(scroll);
+  }
+
+  scroll->layout = "Grid";
 
   Aleg::Window* testWindow = new Aleg::Window(25.0f, 25.0f, "Test", "test");
   Aleg::Object* testObj = new Aleg::Object(glm::vec2(0.0f, 0.0f),
