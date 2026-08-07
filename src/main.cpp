@@ -46,6 +46,9 @@ int main() {
   obj2->collisionGroup = CustomCollisionGroups::test2;
   obj3->collisionGroup = CustomCollisionGroups::test1;
 
+  obj2->cornerRadius = 10.0f;
+  obj2->flipH = true;
+  obj2->flipV = true;
   obj3->setParent(obj1);
 
   Aleg::Window::windows["main"]->cam->setParent(obj1);
