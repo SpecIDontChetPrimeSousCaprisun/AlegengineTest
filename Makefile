@@ -120,6 +120,7 @@ windows:
 
 clean:
 	rm -rf build
+	rm -rf publish
 	rm -f $(TARGET)
 
 .PHONY: all test clean windows

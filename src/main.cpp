@@ -34,6 +34,14 @@ int main() {
                                         box_png_len,
                                         0.1f); 
 
+  Aleg::PointLight* light = new Aleg::PointLight(glm::vec2(0.0f, 0.0f),
+                                                 500.0f,
+                                                 100.0f,
+                                                 glm::vec3(1.0f, 0.5f, 0.0f),
+                                                 Aleg::Window::currentWindow);
+
+  light->setParent(obj1);
+
   obj1->collisionGroup = CustomCollisionGroups::test1;
   obj2->collisionGroup = CustomCollisionGroups::test2;
   obj3->collisionGroup = CustomCollisionGroups::test1;
