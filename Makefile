@@ -1,3 +1,6 @@
+PROJECT_NAME = 
+ITCH_USER =
+
 CXX = g++
 WIN_CXX = x86_64-w64-mingw32-g++
 CXXFLAGS = -Wall -Wextra \
@@ -122,5 +125,16 @@ clean:
 	rm -rf build
 	rm -rf publish
 	rm -f $(TARGET)
+
+publish: clean
+	$(MAKE)
+	cp $(TARGET) publish/$(PROJECT_NAME)_linux
+
+	$(MAKE) windows
+	
+	cd publish &&
+	zip -r -9 windows.zip windows && \
+	butler push $(PROJECT_NAME)_linux $(ITCHIO_USER)/$(PROJECT_NAME):$(PROJECT_NAME)_linux && \
+	butler push windows.zip $(ITCHIO_USER)/$(PROJECT_NAME):$(PROJECT_NAME)_windows
 
 .PHONY: all test clean windows
